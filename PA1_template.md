@@ -9,7 +9,7 @@ output:
 ## Loading and preprocessing the data
 
 ```r
-setwd("C:\\Users\\brenno.oliveira\\Documents\\GitHub\\RepData_PeerAssessment1")
+setwd("C:\\RepData_PeerAssessment1")
 activity<-read.csv(unz("activity.zip", "activity.csv")) 
 totalSteps<-aggregate(steps~date,data=activity,sum,na.rm=TRUE)
 ```
@@ -100,7 +100,8 @@ cat("Total ",count, "NA values were filled.\n\r")
 
 ```
 ## Total  2304 NA values were filled.
-## 
+## 
+
 ```
 
 * Make a histogram of the total number of steps taken each day and Calculate and report the mean and median total number of steps taken per day. 
@@ -166,19 +167,6 @@ xyplot(steps~interval|factor(day),data=stepsInterval2,aspect=1/2,type="l")
 ```r
 library(knitr)
 knit(input="PA1_template.Rmd", output="PA1_template.md", encoding="ISO8859-1", quiet=TRUE)
-```
-
-![plot of chunk unnamed-chunk-11](figure/unnamed-chunk-11-1.png) 
-
-```
-## [1] "PA1_template.md"
-```
-
-```r
-markdownToHTML(input="PA1_template.md", output="PA1_template.html")
-```
-
-```
-## Error in eval(expr, envir, enclos): could not find function "markdownToHTML"
+knit2html("PA1_template.Rmd", "PA1_template.html")
 ```
 
